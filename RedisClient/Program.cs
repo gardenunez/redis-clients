@@ -11,7 +11,7 @@ namespace RedisClient
             IRedisClientsManager manager = new BasicRedisClientManager(host){
                 ConnectTimeout = 100
             };
-            ICacheManager cacheManager = new RedisCacheManager(manager);
+            ICacheManager cacheManager = new ServiceStackRedisCacheManager(manager);
             int tick = System.Environment.TickCount;
             string key = "hello " + tick;
             string value = "world!! " + tick;

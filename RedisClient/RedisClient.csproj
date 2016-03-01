@@ -76,7 +76,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IRedisCacheManager.cs" />
-    <Compile Include="RedisCacheManager.cs" />
+    <Compile Include="ServiceStackRedisCacheManager.cs" />
     <Compile Include="ICacheManager.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

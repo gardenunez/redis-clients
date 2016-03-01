@@ -3,11 +3,11 @@ using ServiceStack.Redis;
 
 namespace RedisClient
 {
-    public class RedisCacheManager : ICacheManager, IRedisCacheManager
+    public class ServiceStackRedisCacheManager : ICacheManager, IRedisCacheManager
     {
         private readonly IRedisClientsManager _redisClientsManager;
 
-        public RedisCacheManager(IRedisClientsManager redisClientsManager)
+        public ServiceStackRedisCacheManager(IRedisClientsManager redisClientsManager)
         {
             _redisClientsManager = redisClientsManager;
         }
