@@ -2,7 +2,7 @@
 using StackExchange.Redis;
 using StackExchange.Redis.Extensions.Core;
 
-namespace RedisClient
+namespace RedisClient.Clients
 {
     public class StackExchangeRedisCacheManager : ICacheManager, IRedisCacheManager
     {

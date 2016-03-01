@@ -1,7 +1,7 @@
 ﻿using System;
 using ServiceStack.Redis;
 
-namespace RedisClient
+namespace RedisClient.Clients
 {
     public class ServiceStackRedisCacheManager : ICacheManager, IRedisCacheManager
     {

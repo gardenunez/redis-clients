@@ -1,7 +1,6 @@
 ﻿using System;
+using RedisClient.Clients;
 using ServiceStack.Redis;
-using StackExchange.Redis;
-using StackExchange.Redis.Extensions.Core;
 using StackExchange.Redis.Extensions.Newtonsoft;
 
 namespace RedisClient

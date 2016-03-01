@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace RedisClient
+namespace RedisClient.Clients
 {
     /// <summary>
     /// Cache manager contract
