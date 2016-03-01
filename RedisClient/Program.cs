@@ -1,5 +1,8 @@
 ﻿using System;
 using ServiceStack.Redis;
+using StackExchange.Redis;
+using StackExchange.Redis.Extensions.Core;
+using StackExchange.Redis.Extensions.Newtonsoft;
 
 namespace RedisClient
 {
@@ -12,14 +15,25 @@ namespace RedisClient
                 ConnectTimeout = 100
             };
             ICacheManager cacheManager = new ServiceStackRedisCacheManager(manager);
+            PlayKeyValue(cacheManager);
+
+
+            var serializer = new NewtonsoftSerializer();
+            ICacheManager seCacheManager = new StackExchangeRedisCacheManager(serializer);
+            PlayKeyValue(cacheManager);
+
+
+            Console.WriteLine("END");
+            Console.Read();
+        }
+
+        static void PlayKeyValue(ICacheManager cacheManager)
+        {
             int tick = System.Environment.TickCount;
             string key = "hello " + tick;
             string value = "world!! " + tick;
             cacheManager.Add(key, value, TimeSpan.FromSeconds(5));
             Console.WriteLine(cacheManager.Get<string>(key));
-
-            Console.WriteLine("END");
-            Console.Read();
         }
     }
 }

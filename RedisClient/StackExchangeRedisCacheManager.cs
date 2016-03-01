@@ -1,22 +1,32 @@
 ﻿using System;
+using StackExchange.Redis;
+using StackExchange.Redis.Extensions.Core;
 
 namespace RedisClient
 {
     public class StackExchangeRedisCacheManager : ICacheManager, IRedisCacheManager
     {
+        private readonly ISerializer _serializer;
 
-        public StackExchangeRedisCacheManager()
+        public StackExchangeRedisCacheManager(ISerializer serializer)
         {
+            _serializer = serializer;
         }
 
         public bool Add<TItem>(string key, TItem item, TimeSpan expirationPeriod)
         {
-            throw new NotImplementedException();
+            using (var cacheClient = new StackExchangeRedisCacheClient(_serializer))
+            {
+                return cacheClient.Add(key, item, expirationPeriod);
+            }
         }
 
         public TItem Get<TItem>(string key)
         {
-            throw new NotImplementedException();
+            using (var cacheClient = new StackExchangeRedisCacheClient(_serializer))
+            {
+                return cacheClient.Get<TItem>(key);
+            }
         }
     }
 }
